@@ -1,92 +1,211 @@
-# Zakat-Infaq-Shodaqoh
+# Sistem Zakat Online Masjid Al Fajar Surabaya
 
-**Kelas:** PTI-C 2023  
-**Kelompok:** 6  
+ Tentang Program
+Sistem Zakat Online Masjid Al Fajar Surabaya adalah platform digital yang dikembangkan untuk memudahkan jamaah dan masyarakat umum dalam menyalurkan zakat, infaq, dan sedekah secara online dengan cara yang mudah, aman, dan transparan. Program ini bertujuan untuk modernisasi pengelolaan dana zakat dengan memanfaatkan teknologi digital untuk meningkatkan efisiensi dan transparansi dalam distribusi dana kepada yang berhak.
 
----
-
-## Anggota Kelompok
-
-1. Dennis Kiftirul Azis (23050974106)  
-2. Muh. Yanuar Ismail Akbar (23050974107)  
-3. Muhammad Zaky Ardiansyah (23050974090)  
-
----
-
-## Deskripsi
-
-Website **Zakat Masjid Al-Fajar Surabaya** adalah portal transparan dan interaktif untuk menghimpun dan menyalurkan zakat, infaq, dan sedekah. Melalui platform ini, pengunjung dapat melihat program-program sosial, memeriksa laporan keuangan, melakukan donasi online, dan memantau statistik real-time. Digitalisasi zakat diidentifikasi sebagai strategi krusial untuk meningkatkan efisiensi, transparansi, dan kemudahan akses bagi *muzakkî* (pemberi zakat) serta memperluas inklusi keuangan bagi *mustahik* (penerima). Sistem online mendukung pelaporan real-time dan audit digital, sehingga meningkatkan akuntabilitas dan kepercayaan publik.
+ Tujuan Program
+1.	Kemudahan Akses: Memberikan kemudahan kepada muzakki (pembayar zakat) untuk menunaikan kewajiban zakat kapan saja dan dimana saja
+2.	Transparansi: Menyediakan laporan distribusi dana secara real-time untuk memastikan akuntabilitas pengelolaan zakat
+3.	Efisiensi: Mempermudah proses administrasi dan pengelolaan dana zakat melalui sistem digital
+4.	Edukasi: Membantu masyarakat dalam memahami dan menghitung zakat sesuai dengan syariat Islam
+5.	Optimalisasi Distribusi: Memastikan dana zakat tersalurkan tepat sasaran kepada mustahiq (penerima zakat)
 
 ---
 
-## Tujuan Program
+ Fitur Utama
+ 
+1. Sistem Pembayaran Online
+   
+•	Pembayaran zakat, infaq, dan sedekah secara digital
 
-- **Meningkatkan Efisiensi Penghimpunan**  
-  Mempermudah muzakkî dalam membayarkan zakat, infaq, dan sedekah kapan saja dan di mana saja melalui antarmuka yang responsif.
-  
-- **Menjamin Transparansi dan Akuntabilitas**  
-  Menyajikan laporan keuangan dan statistik secara real-time, agar semua pihak (muzakkî, mustahik, dan pengurus masjid) dapat memantau arus dana secara jelas.
+•	Multiple payment gateway yang aman dan terpercaya
 
-- **Memperluas Cakupan Donasi**  
-  Mengakomodasi berbagai metode pembayaran (transfer bank, QRIS, e-wallet) dan mengurangi hambatan geografis bagi muzakkî yang ingin berdonasi.
+•	Konfirmasi pembayaran otomatis
 
-- **Memberdayakan Mustahik**  
-  Menyediakan data dan informasi program pemberdayaan bagi mustahik, serta memudahkan penyaluran dana secara tepat sasaran.
+•	Riwayat transaksi yang dapat diakses kapan saja
+
+2. Kalkulator Zakat Otomatis
+   
+•	Perhitungan zakat sesuai jenis penghasilan dan kepemilikan
+
+•	Kalkulator zakat mal (harta)
+
+•	Kalkulator zakat penghasilan/profesi
+
+•	Kalkulator zakat perdagangan
+
+•	Panduan nisab terkini sesuai harga emas dan perak
+
+3. Program Penyaluran Dana
+   
+•	Zakat: Program penyaluran zakat kepada 8 asnaf (golongan penerima zakat)
+
+•	Infaq: Program pembangunan dan pemeliharaan fasilitas masjid
+
+•	Sedekah: Program bantuan sosial dan kemanusiaan
+
+4. Sistem Transparansi dan Pelaporan
+   
+•	Dashboard laporan keuangan real-time
+
+•	Tracking distribusi dana per program
+
+•	Laporan bulanan dan tahunan
+
+•	Dokumentasi penyaluran bantuan
+
+5. Sistem Komunikasi
+    
+•	Form kontak untuk pertanyaan dan saran
+
+•	Notifikasi status pembayaran
+
+•	Update program dan kegiatan masjid
+
+•	Customer service untuk bantuan teknis
 
 ---
 
-## Daftar Fungsi (Endpoint & Fitur)
+ Endpoints dan Fungsi Teknis
+ 
+Authentication & User Management
 
-### 1. Landing Page  
-- **`/main.php?module=landing_page`**  
-  Menampilkan ringkasan program, statistik real-time, banner promosi, dan tombol navigasi menuju halaman donasi serta laporan.
+•	POST /api/auth/login - Login pengguna
 
-### 2. Halaman Donasi  
-- **`/main.php?module=donasi_zakat`**  
-  Formulir input data muzakkî, perhitungan otomatis zakat (fitrah, maal, penghasilan), dan pilihan metode pembayaran (transfer bank, QRIS, e-wallet).  
-- **`/main.php?module=donasi_infaq`**  
-  Form infaq sukarela tanpa ketentuan nishab, dengan opsi nominal tetap dan custom.  
-- **`/main.php?module=donasi_sedekah`**  
-  Form sedekah bebas, termasuk opsi donasi non-tunai (barang atau jasa).
+•	POST /api/auth/register - Registrasi pengguna baru
 
-### 3. Halaman Program  
-- **`/main.php?module=program`**  
-  Daftar program rutin Masjid Al-Fajar (pemberdayaan ekonomi, beasiswa, posko kesehatan, dan lain-lain), deskripsi singkat, serta jadwal kegiatan.
+•	GET /api/user/profile - Profil pengguna
 
-### 4. Halaman Laporan Keuangan  
-- **`/main.php?module=laporan_keuangan`**  
-  Menampilkan ringkasan penerimaan dan penyaluran dana (zakat, infaq, sedekah) per bulan/tahun dalam format tabel dan grafik (chart).  
-- **`/main.php?module=export_laporan`**  
-  Opsi mengunduh laporan keuangan dalam format PDF atau Excel.
+•	PUT /api/user/profile - Update profil pengguna
 
-### 5. Halaman Statistik  
-- **`/main.php?module=statistik`**  
-  Grafik real-time yang memperlihatkan total donasi (zakat, infaq, sedekah), jumlah muzakkî, serta daftar mustahik yang telah dibantu.   
+Zakat Calculator
 
-### 6. Halaman Manajemen Admin  
-- **`/main.php?module=login`**  
-  Form login untuk admin dengan autentikasi username & password.  
-- **`/main.php?module=dashboard_admin`**  
-  Ringkasan statistik internal, notifikasi transaksi baru, dan menu manajemen data muzakkî serta mustahik.  
-- **`/main.php?module=kelola_muzakki`**  
-  CRUD (Create, Read, Update, Delete) data muzakkî, termasuk histori donasi.  
-- **`/main.php?module=kelola_mustahik`**  
-  CRUD data mustahik, alokasi dana, dan status penyaluran bantuan.  
-- **`/main.php?module=kelola_program`**  
-  CRUD program sosial (penambahan, pengeditan, penonaktifan program).  
-- **`/main.php?module=laporan_admin`**  
-  Laman untuk mengekspor laporan keuangan internal dan audit trail transaksi.
+•	GET /api/calculator/zakat-mal - Kalkulator zakat harta
 
-### 7. Lain-lain  
-- **`/main.php?module=profil_masjid`**  
-  Informasi singkat Sejarah, Visi, Misi, dan Kontak Masjid Al-Fajar Surabaya.  
-- **`/main.php?module=faq`**  
-  Daftar pertanyaan umum seputar zakat, infaq, dan sedekah (syarat, tata cara, dsb.).  
-- **`/main.php?module=kontak`**  
-  Formulir pertanyaan/saran untuk pengunjung, dengan notifikasi email ke admin.
+•	GET /api/calculator/zakat-penghasilan - Kalkulator zakat penghasilan
 
+•	GET /api/calculator/nisab - Data nisab terkini
 
-## Alamat Website
+•	POST /api/calculator/hitung - Perhitungan zakat custom
 
-[https://zakat1.masjidalfajar-sby.site/main.php?module=landing_page](https://zakat1.masjidalfajar-sby.site/main.php?module=landing_page)
+Payment System
 
+•	POST /api/payment/create - Membuat transaksi pembayaran
+
+•	GET /api/payment/status/{id} - Status pembayaran
+
+•	POST /api/payment/confirm - Konfirmasi pembayaran
+
+•	GET /api/payment/history - Riwayat pembayaran pengguna
+
+Program Management
+
+•	GET /api/programs - Daftar program zakat/infaq/sedekah
+
+•	GET /api/programs/{id} - Detail program
+
+•	POST /api/programs/donate - Donasi ke program tertentu
+
+Reporting & Transparency
+
+•	GET /api/reports/summary - Ringkasan laporan keuangan
+
+•	GET /api/reports/distribution - Laporan distribusi dana
+
+•	GET /api/reports/monthly/{month} - Laporan bulanan
+
+•	GET /api/reports/annual/{year} - Laporan tahunan
+
+Contact & Support
+
+•	POST /api/contact/message - Kirim pesan/pertanyaan
+
+•	GET /api/contact/faq - Frequently Asked Questions
+
+•	POST /api/support/ticket - Buat tiket bantuan
+
+ Keamanan dan Keandalan
+ 
+•	Enkripsi SSL/TLS untuk semua transaksi
+
+•	Payment Gateway Tersertifikasi dengan standar keamanan internasional
+
+•	Backup Data Otomatis untuk memastikan keamanan data
+
+•	Audit Trail untuk melacak semua aktivitas sistem
+
+•	Compliance dengan regulasi keuangan dan syariah
+
+ Platform Akses
+ 
+•	Web Application: Akses melalui browser desktop dan mobile
+
+•	Responsive Design: Optimal untuk semua ukuran layar
+
+•	Progressive Web App (PWA): Dapat diinstall di perangkat mobile
+
+•	Cross-browser Compatibility: Mendukung semua browser modern
+
+---
+
+ Manfaat untuk Stakeholder
+ 
+Untuk Muzakki (Pembayar Zakat):
+
+•	Kemudahan pembayaran 24/7
+
+•	Transparansi penggunaan dana
+
+•	Perhitungan zakat yang akurat
+
+•	Laporan pajak untuk zakat penghasilan
+
+Untuk Masjid:
+
+•	Efisiensi pengelolaan administrasi
+
+•	Peningkatan transparansi dan kepercayaan
+
+•	Optimalisasi pengumpulan dan distribusi dana
+
+•	Laporan keuangan yang akurat dan real-time
+
+Untuk Mustahiq (Penerima Zakat):
+
+•	Distribusi bantuan yang lebih tepat sasaran
+
+•	Transparansi dalam penyaluran bantuan
+
+•	Program bantuan yang berkelanjutan
+
+---
+
+ Kontak dan Dukungan
+Untuk pertanyaan, saran, atau bantuan teknis, silakan hubungi tim kami melalui:
+
+•	Website: https://zakat1.masjidalfajar-sby.site/
+
+•	Form kontak yang tersedia di website
+
+•	Media sosial Masjid Al Fajar Surabaya
+
+---
+
+Kelas PTI-C 2023 Kelompok 6
+
+Anggota:
+
+Dennis Kiftirul Azis (23050974106)
+
+Muh. Yanuar Ismail Akbar (23050974107)
+
+Muhammad Zaky Ardiansyah (23050974090)
+
+Link Website:
+https://zakat1.masjidalfajar-sby.site/
+Link Prodi:
+https://pendidikan-ti.ft.unesa.ac.id/
+________________________________________
+Masjid Al Fajar Surabaya
+"Berzakat Lebih Mudah, Aman & Transparan"
+Sistem ini dikembangkan dengan komitmen untuk memudahkan ibadah zakat sambil menjaga prinsip-prinsip syariah dan transparansi dalam pengelolaan dana umat.
